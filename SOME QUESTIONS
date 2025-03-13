@@ -1,0 +1,237 @@
+
+### 1. Interchange the values of two variables using only two variables
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+    
+    a = a + b; // Step 1
+    b = a - b; // Step 2
+    a = a - b; // Step 3
+
+    printf("After interchange: a = %d, b = %d\n", a, b);
+    return 0;
+}
+```
+
+### 2. Find the largest and smallest number among three numbers using conditional operators
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    
+    int largest = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+    int smallest = (a < b) ? ((a < c) ? a : c) : ((b < c) ? b : c);
+    
+    printf("Largest: %d, Smallest: %d\n", largest, smallest);
+    return 0;
+}
+```
+
+### 3. Demonstrate pre-increment and post-increment operators
+```c
+#include <stdio.h>
+
+int main() {
+    int x = 5, y;
+    
+    y = ++x; // Pre-increment
+    printf("After pre-increment: x = %d, y = %d\n", x, y);
+    
+    y = x++; // Post-increment
+    printf("After post-increment: x = %d, y = %d\n", x, y);
+    
+    return 0;
+}
+```
+
+### 4. Classify triangle using else if statement
+```c
+#include <stdio.h>
+
+int main() {
+    float a, b, c;
+    printf("Enter lengths of the three sides: ");
+    scanf("%f %f %f", &a, &b, &c);
+    
+    if (a == b && b == c) {
+        printf("Triangle is Equilateral.\n");
+    } else if (a == b || b == c || a == c) {
+        printf("Triangle is Isosceles.\n");
+    } else {
+        printf("Triangle is Scalene.\n");
+    }
+    
+    return 0;
+}
+```
+
+### 5. Compare two numbers using if statement
+```c
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &a, &b);
+    
+    if (a > b) {
+        printf("%d is greater than %d\n", a, b);
+    } else if (a < b) {
+        printf("%d is less than %d\n", a, b);
+    } else {
+        printf("%d is equal to %d\n", a, b);
+    }
+    
+    return 0;
+}
+```
+
+### 6. Show grades based on examination results using if-else statement
+```c
+#include <stdio.h>
+
+int main() {
+    int marks;
+    printf("Enter your marks: ");
+    scanf("%d", &marks);
+    
+    if (marks >= 90) {
+        printf("Grade: A\n");
+    } else if (marks >= 75) {
+        printf("Grade: B\n");
+    } else if (marks >= 60) {
+        printf("Grade: C\n");
+    } else if (marks >= 40) {
+        printf("Grade: D\n");
+    } else {
+        printf("Grade: F\n");
+    }
+    
+    return 0;
+}
+```
+
+### 7. Simple calculator using switch
+```c
+#include <stdio.h>
+
+int main() {
+    char operator;
+    float num1, num2;
+    
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &operator);
+    printf("Enter two operands: ");
+    scanf("%f %f", &num1, &num2);
+    
+    switch (operator) {
+        case '+':
+            printf("%.2f + %.2f = %.2f\n", num1, num2, num1 + num2);
+            break;
+        case '-':
+            printf("%.2f - %.2f = %.2f\n", num1, num2, num1 - num2);
+            break;
+        case '*':
+            printf("%.2f * %.2f = %.2f\n", num1, num2, num1 * num2);
+            break;
+        case '/':
+            if (num2 != 0) {
+                printf("%.2f / %.2f = %.2f\n", num1, num2, num1 / num2);
+            } else {
+                printf("Division by zero is not allowed.\n");
+            }
+            break;
+        default:
+            printf("Invalid operator.\n");
+    }
+    
+    return 0;
+}
+```
+
+### 8. Sum of the first 30 natural numbers using for loop
+```c
+#include <stdio.h>
+
+int main() {
+    int sum = 0;
+    for (int i = 1; i <= 30; i++) {
+        sum += i;
+    }
+    printf("Sum of first 30 natural numbers: %d\n", sum);
+    return 0;
+}
+```
+
+### 9. Square of numbers from 1 to 10 using for loop
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Number\tSquare\n");
+    for (int i = 1; i <= 10; i++) {
+        printf("%d\t%d\n", i, i * i);
+    }
+    return 0;
+}
+```
+
+### 10. Multiplication tables from 1 to 10 using nested for loop
+```c
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        printf("Multiplication table of %d:\n", i);
+        for (int j = 1; j <= 10; j++) {
+            printf("%d x %d = %d\n", i, j, i * j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+
+### 11. Sum of digits in a given number using while loop
+```c
+#include <stdio.h>
+
+int main() {
+    int number, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    
+    while (number > 0) {
+        sum += number % 10;
+        number /= 10;
+    }
+    
+    printf("Sum of digits: %d\n", sum);
+    return 0;
+}
+```
+
+### 12. Reverse the digits of a given integer using Do-while loop
+```c
+#include <stdio.h>
+
+int main() {
+    int number = 1453, reversed = 0;
+    
+    do {
+        int digit = number % 10;
+        reversed = reversed * 10 + digit;
+        number /= 10;
+    } while (number > 0);
+    
+    printf("Reversed number: %d\n", reversed);
+    return 0;
+}
+```
